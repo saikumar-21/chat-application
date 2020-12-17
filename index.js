@@ -2,16 +2,11 @@ const express = require('express');
 const path = require("path");
 const app = express();
 var http = require('http').createServer(app);
-var cons = require('consolidate');
 const io = require('socket.io')(http)
 const port = 5000;
 
 app.use('/static', express.static('static'));
 app.use(express.urlencoded());
-
-app.engine('html', cons.swig)
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
 
 const user = {};
 io.on('connection', socket =>{

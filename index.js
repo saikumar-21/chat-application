@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 var http = require('http').createServer(app);
 const io = require('socket.io')(http)
-const port = process.env.port || 5000;
+const port = 0.0.0.0;
 
 app.use('/static', express.static('static'));
 app.use(express.urlencoded());
